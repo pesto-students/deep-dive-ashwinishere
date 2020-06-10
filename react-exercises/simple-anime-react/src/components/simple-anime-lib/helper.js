@@ -68,41 +68,83 @@ const timingFunction = {
 };
 
 const getDelay = (userValue, defaultValue) => {
-  const delay = userValue ? Number(userValue) : defaultValue;
+  if (!(typeof userValue === 'number')) {
+    throw new Error(
+      `Expected datatype of delay is number in millisecond, but provided ${typeof userValue} type`
+    );
+  }
+  const delay = userValue ? userValue : defaultValue;
   return delay;
 };
 
 const getDuration = (userValue, defaultValue) => {
-  const duration = userValue ? Number(userValue) : defaultValue;
+  if (!(typeof userValue === 'number')) {
+    throw new Error(
+      `Expected datatype of duration is number in millisecond, but provided ${typeof userValue} type`
+    );
+  }
+
+  const duration = userValue ? userValue : defaultValue;
   return duration;
 };
 
 const getIterationCount = (userValue, defaultValue) => {
-  const iterationCount = userValue ? Number(userValue) : defaultValue;
+  if (!(typeof userValue === 'number')) {
+    throw new Error(
+      `Expected datatype of iterationCount is number, but provided ${typeof userValue} type`
+    );
+  }
+
+  const iterationCount = userValue ? userValue : defaultValue;
   return iterationCount;
 };
 
 const getEasing = (userValue, defaultValue) => {
+  if (!(typeof userValue === 'string')) {
+    throw new Error(
+      `Expected datatype of easing is string, but provided ${typeof userValue} type`
+    );
+  }
   const easing = userValue ? userValue : defaultValue;
   return easing;
 };
 
 const getDropHeight = (userValue, defaultValue) => {
-  const dropHeight = userValue ? Number(userValue) : defaultValue;
+  if (!(typeof userValue === 'number')) {
+    throw new Error(
+      `Expected datatype of dropHeight is number, but provided ${typeof userValue} type`
+    );
+  }
+  const dropHeight = userValue ? userValue : defaultValue;
   return dropHeight;
 };
 
 const getMaxHeight = (userValue, defaultValue) => {
-  const maxHeight = userValue ? Number(userValue) : defaultValue;
+  if (!(typeof userValue === 'number')) {
+    throw new Error(
+      `Expected datatype of maxHeight is number, but provided ${typeof userValue} type`
+    );
+  }
+  const maxHeight = userValue ? userValue : defaultValue;
   return maxHeight;
 };
 
 const getScale = (userValue, defaultValue) => {
-  const scale = userValue ? Math.abs(Number(userValue)) : defaultValue;
+  if (!(typeof userValue === 'number' && userValue > 0)) {
+    throw new Error(
+      `Expected datatype of scale is number and it should be positive only, but provided ${typeof userValue} type`
+    );
+  }
+  const scale = userValue ? Number(userValue) : defaultValue;
   return scale;
 };
 
 const getCallback = (userCallback, defaultCallback) => {
+  if (!(typeof userCallback === 'function')) {
+    throw new Error(
+      `Expected callback to be function type, but provided ${typeof userCallback} type`
+    );
+  }
   const callback = userCallback ? userCallback : defaultCallback;
   return callback;
 };
