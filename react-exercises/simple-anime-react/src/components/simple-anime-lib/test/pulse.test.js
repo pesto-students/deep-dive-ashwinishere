@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Pulse } from '../pulse';
+import { Pulse } from '../effects/pulse';
 
 it('pulse effect snapshot test', () => {
   const tree = renderer.create(<Pulse></Pulse>).toJSON();
