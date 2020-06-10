@@ -68,84 +68,83 @@ const timingFunction = {
 };
 
 const getDelay = (userValue, defaultValue) => {
-  if (!(typeof userValue === 'number')) {
+  const delay = userValue ? userValue : defaultValue;
+  if (!(typeof delay === 'number')) {
     throw new Error(
-      `Expected datatype of delay is number in millisecond, but provided ${typeof userValue} type`
+      `Expected datatype of delay is number in millisecond, but provided ${typeof delay} type`
     );
   }
-  const delay = userValue ? userValue : defaultValue;
   return delay;
 };
 
 const getDuration = (userValue, defaultValue) => {
-  if (!(typeof userValue === 'number')) {
+  const duration = userValue ? userValue : defaultValue;
+  if (!(typeof duration === 'number')) {
     throw new Error(
-      `Expected datatype of duration is number in millisecond, but provided ${typeof userValue} type`
+      `Expected datatype of duration is number in millisecond, but provided ${typeof duration} type`
     );
   }
-
-  const duration = userValue ? userValue : defaultValue;
   return duration;
 };
 
 const getIterationCount = (userValue, defaultValue) => {
-  if (!(typeof userValue === 'number')) {
+  const iterationCount = userValue ? userValue : defaultValue;
+  if (!(typeof iterationCount === 'number')) {
     throw new Error(
-      `Expected datatype of iterationCount is number, but provided ${typeof userValue} type`
+      `Expected datatype of iterationCount is number, but provided ${typeof iterationCount} type`
     );
   }
-
-  const iterationCount = userValue ? userValue : defaultValue;
   return iterationCount;
 };
 
 const getEasing = (userValue, defaultValue) => {
-  if (!(typeof userValue === 'string')) {
+  const easing = userValue ? userValue : defaultValue;
+  if (!(typeof easing === 'string')) {
     throw new Error(
-      `Expected datatype of easing is string, but provided ${typeof userValue} type`
+      `Expected datatype of easing is string, but provided ${typeof easing} type`
     );
   }
-  const easing = userValue ? userValue : defaultValue;
   return easing;
 };
 
 const getDropHeight = (userValue, defaultValue) => {
-  if (!(typeof userValue === 'number')) {
+  const dropHeight = userValue ? userValue : defaultValue;
+  if (!(typeof dropHeight === 'number')) {
     throw new Error(
-      `Expected datatype of dropHeight is number, but provided ${typeof userValue} type`
+      `Expected datatype of dropHeight is number, but provided ${typeof dropHeight} type`
     );
   }
-  const dropHeight = userValue ? userValue : defaultValue;
   return dropHeight;
 };
 
 const getMaxHeight = (userValue, defaultValue) => {
-  if (!(typeof userValue === 'number')) {
+  const maxHeight = userValue ? userValue : defaultValue;
+  if (!(typeof maxHeight === 'number')) {
     throw new Error(
-      `Expected datatype of maxHeight is number, but provided ${typeof userValue} type`
+      `Expected datatype of maxHeight is number, but provided ${typeof maxHeight} type`
     );
   }
-  const maxHeight = userValue ? userValue : defaultValue;
   return maxHeight;
 };
 
 const getScale = (userValue, defaultValue) => {
-  if (!(typeof userValue === 'number' && userValue > 0)) {
+  const scale = userValue ? Number(userValue) : defaultValue;
+  if (!(typeof scale === 'number' && scale > 0)) {
     throw new Error(
-      `Expected datatype of scale is number and it should be positive only, but provided ${typeof userValue} type`
+      `Expected datatype of scale is number and it should be positive only,
+       but provided ${typeof scale} type and value ${scale}`
     );
   }
-  const scale = userValue ? Number(userValue) : defaultValue;
   return scale;
 };
 
 const getCallback = (userCallback, defaultCallback) => {
-  if (!(typeof userCallback === 'function')) {
+  const callback = userCallback ? userCallback : defaultCallback;
+  if (!(typeof callback === 'function' || callback === null)) {
     throw new Error(
       `Expected callback to be function type, but provided ${typeof userCallback} type`
     );
   }
-  const callback = userCallback ? userCallback : defaultCallback;
   return callback;
 };
 
